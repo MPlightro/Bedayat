@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 110" role="img" aria-labelledby="title">
+  <title id="title">Rabbit logo placeholder</title>
+  <rect x="2" y="2" width="356" height="106" rx="8" fill="#f3ebdd" stroke="#111" stroke-width="4" stroke-dasharray="10 7"/>
+  <text x="180" y="51" text-anchor="middle" font-family="Arial,sans-serif" font-size="38" font-weight="800" fill="#111">rabbit</text>
+  <text x="180" y="82" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" font-weight="700" letter-spacing="2" fill="#111">LOGO PLACEHOLDER</text>
+</svg>
