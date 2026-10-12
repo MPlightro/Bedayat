@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Pocket Moon Coffee</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700;12..96,800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#faf9f5;--ink:#14213d;--mute:#5a6378;--card:#fff;--line:#dcdfe6;--pist:#c5e1a5;--blush:#f4c7c3;--board:#14213d;--boardtxt:#faf9f5;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e1526;--ink:#f1efe8;--mute:#a6aec2;--card:#17213a;--line:#2a3654;--board:#c5e1a5;--boardtxt:#14213d}}
+:root[data-theme="dark"]{--bg:#0e1526;--ink:#f1efe8;--mute:#a6aec2;--card:#17213a;--line:#2a3654;--board:#c5e1a5;--boardtxt:#14213d}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.6 "DM Sans",system-ui,sans-serif}
+h1,h2,h3{font-family:"Bricolage Grotesque","DM Sans",system-ui,sans-serif;line-height:1.05;margin:0}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--ink);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 22px}
+header{display:flex;justify-content:space-between;align-items:center;padding:20px 0;flex-wrap:wrap;gap:12px}
+.logo{font:800 22px "Bricolage Grotesque",sans-serif;text-decoration:none;display:flex;align-items:center;gap:10px}
+.moon{width:26px;height:26px;border-radius:50%;background:var(--ink);position:relative;overflow:hidden}
+.moon:after{content:"";position:absolute;width:22px;height:22px;border-radius:50%;background:var(--bg);left:9px;top:-4px}
+nav{display:flex;gap:22px;align-items:center;font-weight:500}
+nav a{text-decoration:none}nav a:hover{text-decoration:underline;text-underline-offset:5px}
+.btn{display:inline-block;background:var(--ink);color:var(--bg);border:0;border-radius:999px;padding:13px 26px;font:700 16px "DM Sans",sans-serif;cursor:pointer;text-decoration:none}
+.btn.alt{background:var(--pist);color:#14213d}
+.hero{display:grid;grid-template-columns:1.25fr 1fr;gap:40px;align-items:center;padding:48px 0 72px}
+.hero h1{font-size:clamp(46px,8vw,96px);font-weight:800;letter-spacing:-.035em}
+.hero p{max-width:46ch;color:var(--mute);font-size:19px;margin:22px 0 28px}
+.hero .cta{display:flex;gap:12px;flex-wrap:wrap}
+.board{background:var(--board);color:var(--boardtxt);border-radius:22px;padding:28px;transform:rotate(1.6deg);animation:settle .9s cubic-bezier(.2,.8,.2,1) both}
+@keyframes settle{from{transform:rotate(-6deg) translateY(24px);opacity:0}}
+@media (prefers-reduced-motion:reduce){.board{animation:none}html{scroll-behavior:auto}}
+.board small{opacity:.75;font-weight:500}
+.board h3{font-size:34px;margin:6px 0 10px}
+.board ul{list-style:none;padding:0;margin:16px 0 0;border-top:1px dashed currentColor}
+.board li{display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px dashed currentColor;opacity:.92}
+section{padding:64px 0;border-top:1px solid var(--line)}
+section>.wrap>h2{font-size:clamp(34px,5vw,54px);letter-spacing:-.025em;margin-bottom:10px}
+.lede{color:var(--mute);max-width:56ch;margin:0 0 30px}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:26px}
+.tab{background:transparent;color:var(--ink);border:2px solid var(--ink);border-radius:999px;padding:9px 20px;font:700 15px "DM Sans",sans-serif;cursor:pointer}
+.tab[aria-selected="true"]{background:var(--ink);color:var(--bg)}
+.menu{display:grid;grid-template-columns:repeat(2,1fr);gap:0 48px}
+.item{padding:16px 0;border-bottom:1px solid var(--line)}
+.item .row{display:flex;justify-content:space-between;gap:16px;font-weight:700;font-size:18px}
+.item p{margin:3px 0 0;color:var(--mute);font-size:15.5px}
+.tag{font-size:12.5px;font-weight:700;background:var(--blush);color:#14213d;border-radius:6px;padding:1px 8px;margin-left:8px;vertical-align:2px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+.two h2{font-size:clamp(30px,4vw,44px)}
+.hours{width:100%;border-collapse:collapse;margin-top:14px}
+.hours td{padding:9px 0;border-bottom:1px solid var(--line)}
+.hours td:last-child{text-align:right;font-weight:700}
+.quote{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px;margin-bottom:14px}
+.quote b{display:block;margin-top:8px;font-size:15px;color:var(--mute);font-weight:500}
+.res{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:28px;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.res label{display:flex;flex-direction:column;gap:6px;font-weight:700;font-size:15px}
+.res input,.res select{font:400 17px "DM Sans",sans-serif;padding:12px 14px;border-radius:12px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink)}
+.res .full{grid-column:1/-1}
+#msg{font-weight:700;min-height:1.6em;margin:0}
+footer{padding:36px 0 56px;border-top:1px solid var(--line);color:var(--mute);font-size:15px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+@media (max-width:760px){.hero,.two{grid-template-columns:1fr}.menu{grid-template-columns:1fr}.res{grid-template-columns:1fr}nav{gap:14px;font-size:15px}.board{transform:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <a class="logo" href="#top"><span class="moon"></span>Pocket Moon</a>
+  <nav><a href="#menu">Menu</a><a href="#visit">Visit</a><a href="#reserve">Reserve</a></nav>
+</header>
+
+<main id="top">
+<div class="hero">
+  <div>
+    <h1>Slow coffee for fast mornings.</h1>
+    <p>A small corner café with a big espresso machine. We roast in-house every Tuesday, bake before sunrise, and keep a table free for whoever needs one.</p>
+    <div class="cta"><a class="btn" href="#menu">See the menu</a><a class="btn alt" href="#reserve">Reserve a table</a></div>
+  </div>
+  <aside class="board" aria-label="Today's specials">
+    <small>Today on the board</small>
+    <h3>Cardamom Honey Latte</h3>
+    <div>Single-origin espresso, steamed oat milk, a spoon of wildflower honey.</div>
+    <ul><li><span>Pour-over: Ethiopia Guji</span><span>$5.50</span></li><li><span>Pastry: Pistachio croissant</span><span>$4.75</span></li><li><span>Soup: Roasted tomato</span><span>$7.00</span></li></ul>
+  </aside>
+</div>
+
+<section id="menu">
+<div class="wrap" style="padding:0">
+  <h2>The menu</h2>
+  <p class="lede">Everything is made to order. Swap any milk for oat, almond or whole at no extra charge.</p>
+  <div class="tabs" role="tablist" aria-label="Menu categories"></div>
+  <div class="menu" id="items" role="tabpanel"></div>
+</div>
+</section>
+
+<section id="visit">
+<div class="wrap two" style="padding:0">
+  <div>
+    <h2>Come by</h2>
+    <p class="lede" style="margin-bottom:0">42 Lantern Lane, Old Mill District<br>Free Wi-Fi, outlets at every window seat, dogs welcome on the patio.</p>
+    <table class="hours"><tr><td>Mon – Fri</td><td>7:00 – 18:00</td></tr><tr><td>Saturday</td><td>8:00 – 20:00</td></tr><tr><td>Sunday</td><td>8:00 – 15:00</td></tr></table>
+  </div>
+  <div>
+    <h2>Regulars say</h2>
+    <div class="quote">“The only place where my flat white arrives before I finish saying hello.”<b>Dana, Tuesday regular</b></div>
+    <div class="quote">“Get the cardamom bun. Don't share it.”<b>Marcus, window seat 3</b></div>
+  </div>
+</div>
+</section>
+
+<section id="reserve">
+<div class="wrap" style="padding:0">
+  <h2>Reserve a table</h2>
+  <p class="lede">Tables for up to 8 people. This is a demo, so no booking is actually made.</p>
+  <div class="res">
+    <label>Name<input id="n" placeholder="Your name" autocomplete="name"></label>
+    <label>Guests<select id="g"><option>1</option><option selected>2</option><option>3</option><option>4</option><option>5–8</option></select></label>
+    <label>Date<input id="d" type="date"></label>
+    <label>Time<select id="t"><option>08:00</option><option>10:00</option><option>12:00</option><option>14:00</option><option>16:00</option></select></label>
+    <div class="full"><button class="btn" id="go">Reserve table</button></div>
+    <p class="full" id="msg" role="status"></p>
+  </div>
+</div>
+</section>
+</main>
+
+<footer><span>© 2026 Pocket Moon Coffee. A demo site with made-up details.</span><span>hello@pocketmoon.example</span></footer>
+</div>
+
+<script>
+const M={
+"Coffee":[["Espresso","Double shot, caramel finish","$3.25"],["Flat white","Silky, two shots, small and strong","$4.50"],["Cardamom honey latte","Our signature, served hot or iced","$5.75","Signature"],["Cortado","Equal parts espresso and warm milk","$4.00"],["Pour-over","Rotating single origin, ask what's on","$5.50"],["Cold brew","Steeped 18 hours, over ice","$4.75"]],
+"Tea & more":[["Jasmine pearl tea","Hand-rolled leaves, floral and light","$4.25"],["Masala chai","House spice blend, steamed milk","$4.75"],["Matcha latte","Ceremonial grade, oat milk","$5.50"],["Hot chocolate","70% dark, with a pinch of sea salt","$4.50"],["Fresh mint lemonade","Muddled to order","$4.00"],["Sparkling cold-pressed apple","Local orchard, no sugar added","$4.25"]],
+"Food":[["Avocado toast","Sourdough, chili flakes, soft egg","$9.50","Veg"],["Halloumi breakfast wrap","Roasted peppers, rocket, harissa","$10.25"],["Roasted tomato soup","With a grilled cheese soldier","$7.00","Veg"],["Chicken pesto sandwich","Ciabatta, basil pesto, sun-dried tomato","$11.00"],["Overnight oats","Oat milk, berries, toasted seeds","$6.75","Vegan"],["Granola bowl","Greek yogurt, honey, seasonal fruit","$7.25"]],
+"Sweets":[["Pistachio croissant","Baked at 6 a.m., gone by noon","$4.75"],["Cardamom bun","Brown butter glaze","$4.25","Favorite"],["Olive oil cake","Orange zest, whipped mascarpone","$5.50"],["Double chocolate cookie","Warm, never cold","$3.50","Vegan"],["Lemon tart","Crisp shell, tangy curd","$5.25"],["Banana bread","Toasted with salted butter","$4.50"]]};
+const tabs=document.querySelector(".tabs"),box=document.getElementById("items");
+function show(k){
+  [...tabs.children].forEach(b=>b.setAttribute("aria-selected",b.dataset.k===k));
+  box.innerHTML=M[k].map(i=>`<div class="item"><div class="row"><span>${i[0]}${i[3]?`<span class="tag">${i[3]}</span>`:""}</span><span>${i[2]}</span></div><p>${i[1]}</p></div>`).join("");
+}
+Object.keys(M).forEach(k=>{const b=document.createElement("button");b.className="tab";b.setAttribute("role","tab");b.dataset.k=k;b.textContent=k;b.onclick=()=>show(k);tabs.appendChild(b)});
+show("Coffee");
+const d=document.getElementById("d");d.min=d.value=new Date().toISOString().slice(0,10);
+document.getElementById("go").onclick=()=>{
+  const n=document.getElementById("n").value.trim(),m=document.getElementById("msg");
+  if(!n){m.textContent="Add your name so we know who to expect.";return}
+  m.textContent=`Table reserved for ${n}: ${document.getElementById("g").value} guest(s), ${d.value} at ${document.getElementById("t").value}. See you soon!`;
+};
+</script>
+</body>
+</html>
