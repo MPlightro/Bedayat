@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Maré – Coastal Portuguese Kitchen</title>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;900&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f6f4ee;--ink:#0c1233;--mute:#545b78;--line:#d9d6cb;--card:#fff;--blue:#1d3bd1;--lemon:#f6e05e;--coral:#ff6f59;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0b1026;--ink:#f3f1ea;--mute:#a4abc6;--line:#252d52;--card:#131a3a}}
+:root[data-theme="dark"]{--bg:#0b1026;--ink:#f3f1ea;--mute:#a4abc6;--line:#252d52;--card:#131a3a}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.6 "Instrument Sans",system-ui,sans-serif}
+h1,h2,h3{font-family:Unbounded,"Instrument Sans",system-ui,sans-serif;margin:0;line-height:1.05}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--coral);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 22px}
+.hero{background:var(--blue);color:#fff;
+background-image:radial-gradient(circle at 50% 100%,rgba(255,255,255,.09) 0 10px,transparent 11px),radial-gradient(circle at 0 50%,rgba(255,255,255,.09) 0 10px,transparent 11px);background-size:56px 56px}
+.hero nav{display:flex;justify-content:space-between;align-items:center;padding:20px 0;flex-wrap:wrap;gap:12px}
+.hero nav div{display:flex;gap:22px;font-weight:600}
+.hero nav a{text-decoration:none}.hero nav a:hover{text-decoration:underline;text-underline-offset:5px}
+.mark{font:900 20px Unbounded,sans-serif;text-decoration:none}
+.hero h1{font-size:clamp(88px,22vw,230px);font-weight:900;letter-spacing:-.04em;margin:28px 0 0;line-height:.9}
+.hero .grid{display:grid;grid-template-columns:1.2fr 1fr;gap:36px;padding:26px 0 64px;align-items:end}
+.hero p{font-size:20px;max-width:40ch;margin:0 0 24px}
+.btn{display:inline-block;border:0;border-radius:999px;padding:14px 28px;font:700 16px "Instrument Sans",sans-serif;cursor:pointer;text-decoration:none;background:var(--lemon);color:#0c1233}
+.btn.line{background:transparent;color:#fff;border:2px solid #fff;margin-left:8px}
+.catch{background:var(--lemon);color:#0c1233;border-radius:20px;padding:22px 24px;transform:rotate(-1.5deg);animation:in .8s cubic-bezier(.2,.8,.2,1) both}
+@keyframes in{from{opacity:0;transform:rotate(4deg) translateY(30px)}}
+@media (prefers-reduced-motion:reduce){.catch{animation:none}html{scroll-behavior:auto}}
+.catch h3{font-size:22px;margin-bottom:8px}
+.catch ul{list-style:none;margin:0;padding:0}
+.catch li{display:flex;justify-content:space-between;gap:12px;padding:6px 0;border-top:2px dotted rgba(12,18,51,.35)}
+section{padding:68px 0}
+h2{font-size:clamp(28px,4.6vw,46px);font-weight:700;letter-spacing:-.02em;margin-bottom:12px}
+.lede{color:var(--mute);max-width:58ch;margin:0 0 28px}
+.ctl{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center;margin-bottom:22px}
+.tabs{display:flex;gap:8px;flex-wrap:wrap}
+.tab{background:transparent;color:var(--ink);border:2px solid var(--ink);border-radius:999px;padding:9px 20px;font:600 15px "Instrument Sans",sans-serif;cursor:pointer}
+.tab[aria-selected="true"]{background:var(--blue);border-color:var(--blue);color:#fff}
+.veg{display:flex;gap:8px;align-items:center;font-weight:600;cursor:pointer}
+.veg input{width:20px;height:20px;accent-color:var(--blue)}
+.dish{padding:16px 0;border-bottom:1px solid var(--line)}
+.dish .row{display:flex;gap:10px;align-items:baseline;font-weight:700;font-size:18px}
+.dish .dots{flex:1;border-bottom:2px dotted var(--line);transform:translateY(-4px)}
+.dish p{margin:4px 0 0;color:var(--mute);font-size:15.5px;max-width:60ch}
+.v{font-size:12.5px;font-weight:700;background:var(--lemon);color:#0c1233;border-radius:6px;padding:1px 8px;margin-left:8px}
+.empty{color:var(--mute);padding:24px 0}
+.band{background:var(--blue);color:#fff}
+.band .two{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+.band p{max-width:46ch}
+.stat{display:flex;gap:28px;flex-wrap:wrap;margin-top:22px}
+.stat div{font-size:15px}.stat b{display:block;font:700 30px Unbounded,sans-serif}
+.info{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+.hours{width:100%;border-collapse:collapse}
+.hours td{padding:10px 0;border-bottom:1px solid var(--line)}.hours td:last-child{text-align:right;font-weight:700}
+.res{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:28px;display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.res label,.res .lab{display:flex;flex-direction:column;gap:6px;font-weight:700;font-size:15px}
+.res input{font:400 17px "Instrument Sans",sans-serif;padding:12px 14px;border-radius:12px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink)}
+.full{grid-column:1/-1}
+.step{display:flex;align-items:center;gap:14px}
+.step button{width:42px;height:42px;border-radius:50%;border:2px solid var(--ink);background:transparent;color:var(--ink);font:700 20px sans-serif;cursor:pointer}
+.step output{min-width:2ch;text-align:center;font:700 22px Unbounded,sans-serif}
+.slots{display:flex;gap:8px;flex-wrap:wrap}
+.slot{border:2px solid var(--line);background:transparent;color:var(--ink);border-radius:10px;padding:8px 16px;font:600 15px "Instrument Sans",sans-serif;cursor:pointer}
+.slot[aria-pressed="true"]{background:var(--blue);border-color:var(--blue);color:#fff}
+.res .btn{background:var(--blue);color:#fff}
+#msg{margin:0;font-weight:700;min-height:1.6em}
+footer{padding:32px 0 52px;border-top:1px solid var(--line);color:var(--mute);font-size:15px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+@media (max-width:760px){.hero .grid,.band .two,.info,.res{grid-template-columns:1fr}.catch{transform:none}.hero nav div{gap:14px;font-size:15px}}
+</style>
+</head>
+<body>
+<header class="hero">
+<div class="wrap">
+  <nav><a class="mark" href="#top">MARÉ</a><div><a href="#menu">Menu</a><a href="#story">Story</a><a href="#visit">Visit</a><a href="#reserve">Reserve</a></div></nav>
+  <h1 id="top">Maré</h1>
+  <div class="grid">
+    <div>
+      <p>Coastal Portuguese cooking over open fire. Fish from the morning boats, bread from our own oven, and wine from small vineyards.</p>
+      <a class="btn" href="#reserve">Reserve a table</a><a class="btn line" href="#menu">See the menu</a>
+    </div>
+    <aside class="catch" aria-label="Tonight's catch">
+      <h3>Tonight's catch</h3>
+      <ul><li><span>Grilled sea bream</span><span>$34</span></li><li><span>Clams à Bulhão Pato</span><span>$18</span></li><li><span>Octopus, smoked paprika</span><span>$26</span></li></ul>
+    </aside>
+  </div>
+</div>
+</header>
+
+<main>
+<section id="menu"><div class="wrap">
+  <h2>Dinner menu</h2>
+  <p class="lede">Dishes arrive as they are ready, so share everything. Ask us for the wine pairing with any course.</p>
+  <div class="ctl">
+    <div class="tabs" role="tablist" aria-label="Courses"></div>
+    <label class="veg"><input type="checkbox" id="vg"> Vegetarian only</label>
+  </div>
+  <div id="items" role="tabpanel"></div>
+</div></section>
+
+<section id="story" class="band"><div class="wrap two">
+  <div><h2>Fire, salt and patience</h2></div>
+  <div>
+    <p>Maré opened in 2019 when chef Inês Carvalho brought her grandmother's recipe notebook home from Nazaré. Every dish starts with one rule: buy what the sea gives us today.</p>
+    <div class="stat"><div><b>6 a.m.</b>boats come in</div><div><b>2</b>wood-fired ovens</div><div><b>140</b>Portuguese wines</div></div>
+  </div>
+</div></section>
+
+<section id="visit"><div class="wrap info">
+  <div>
+    <h2>Visit us</h2>
+    <p class="lede" style="margin-bottom:14px">18 Harbour Steps, Seaside Quarter<br>Step-free entrance, a heated terrace, and a bar with 12 seats for walk-ins.</p>
+  </div>
+  <table class="hours"><tr><td>Tue – Thu</td><td>17:30 – 22:00</td></tr><tr><td>Fri – Sat</td><td>17:30 – 23:30</td></tr><tr><td>Sunday lunch</td><td>12:00 – 16:00</td></tr><tr><td>Monday</td><td>Closed</td></tr></table>
+</div></section>
+
+<section id="reserve"><div class="wrap">
+  <h2>Reserve a table</h2>
+  <p class="lede">Tables for 1 to 10 guests. This is a demo, so no booking is actually made.</p>
+  <div class="res">
+    <label>Name<input id="n" placeholder="Your name" autocomplete="name"></label>
+    <label>Date<input id="d" type="date"></label>
+    <div class="lab">Guests<div class="step"><button id="m" aria-label="Fewer guests">−</button><output id="g">2</output><button id="p" aria-label="More guests">+</button></div></div>
+    <div class="lab">Time<div class="slots" id="slots"></div></div>
+    <div class="full"><button class="btn" id="go">Book table</button></div>
+    <p class="full" id="msg" role="status"></p>
+  </div>
+</div></section>
+</main>
+
+<div class="wrap"><footer><span>© 2026 Maré. A demo site with made-up details.</span><span>mesa@mare.example</span></footer></div>
+
+<script>
+const M={
+"Raw bar":[["Oysters, half dozen","Mignonette, lemon, pickled chili","$22"],["Tuna crudo","Citrus, olive oil, pink pepper","$19"],["Prawn cocktail","Piri-piri aioli, little gem","$17"],["Marinated beets","Goat cheese, orange, almonds","$13",1]],
+"Small plates":[["Clams à Bulhão Pato","Garlic, coriander, white wine","$18"],["Blistered padrón peppers","Flaky salt, lemon","$9",1],["Salt cod fritters","Parsley, saffron mayo","$12"],["Wood-fired bread","Whipped olive butter","$7",1],["Chouriço on the grill","Flamed with aguardente","$14"]],
+"Mains":[["Grilled sea bream","Charred lemon, potatoes, greens","$34"],["Octopus, smoked paprika","Chickpeas, roasted peppers","$26"],["Seafood rice","Tomato, prawns, clams, coriander","$32"],["Mushroom rice","Wild mushrooms, sheep's cheese","$24",1],["Pork and clams","Alentejo style, fried potato","$27"],["Whole fish to share","Market price, ask your server","$58"]],
+"Desserts":[["Pastel de nata","Warm, cinnamon, served two to a plate","$8",1],["Chocolate and olive oil","Sea salt, orange peel","$10",1],["Egg-yolk pudding","Toasted almonds","$9",1],["Port and cheese","Three Portuguese cheeses, quince","$15",1]]};
+let cur="Raw bar";const tabs=document.querySelector(".tabs"),box=document.getElementById("items"),vg=document.getElementById("vg");
+function show(k){cur=k;[...tabs.children].forEach(b=>b.setAttribute("aria-selected",b.dataset.k===k));
+ const l=M[k].filter(i=>!vg.checked||i[3]);
+ box.innerHTML=l.length?l.map(i=>`<div class="dish"><div class="row"><span>${i[0]}${i[3]?'<span class="v">Veg</span>':""}</span><span class="dots"></span><span>${i[2]}</span></div><p>${i[1]}</p></div>`).join(""):'<p class="empty">No vegetarian dishes in this course. Try Small plates or Desserts.</p>'}
+Object.keys(M).forEach(k=>{const b=document.createElement("button");b.className="tab";b.setAttribute("role","tab");b.dataset.k=k;b.textContent=k;b.onclick=()=>show(k);tabs.appendChild(b)});
+vg.onchange=()=>show(cur);show(cur);
+let g=2,time="19:30";const G=document.getElementById("g");
+m.onclick=()=>{g=Math.max(1,g-1);G.textContent=g};p.onclick=()=>{g=Math.min(10,g+1);G.textContent=g};
+const S=document.getElementById("slots");
+["18:00","19:30","21:00"].forEach(t=>{const b=document.createElement("button");b.className="slot";b.textContent=t;b.setAttribute("aria-pressed",t===time);b.onclick=()=>{time=t;[...S.children].forEach(x=>x.setAttribute("aria-pressed",x===b))};S.appendChild(b)});
+const d=document.getElementById("d");d.min=d.value=new Date().toISOString().slice(0,10);
+go.onclick=()=>{const n=document.getElementById("n").value.trim();
+ msg.textContent=n?`Booked: ${n}, ${g} guest${g>1?"s":""}, ${d.value} at ${time}. We'll save you a good table.`:"Add your name so we know who to expect."};
+</script>
+</body>
+</html>
